@@ -1,8 +1,8 @@
-Ansible Controller
+<h1>Ansible Controller</h1>
 
 Diagram
 
-Pre-requisites 
+<h2>Pre-requisites</h2>
 
 - Ansible, Configuration Management 
 - Vagrant: For dev-env tools
@@ -11,64 +11,64 @@ Pre-requisites
 configuration files should they update
 - Jenkins CI/CD
 
-Ansible controller and agent nodes set up
+<h2>Ansible controller and agent nodes set up</h2>
 
 - Create a new folder within the VSCode called "Iac" then make a new file called `vagrantfile` clone or copy and paste the `vagrantfile` codes and save.
 - Clone the `vagrantfile` from "" and then `vagrant up`.
 - Make sure to `double check syntax/indentation)`
 
-Using Ubuntu 18.04 for ansible controller for the agent nodes set up 
+<h2>Using Ubuntu 18.04 for ansible controller for the agent nodes set up </h2>
 
-Step 1
+<h3>Step 1</h3>
 
 - Refer back to the vagrant documentation `link` and follow the neccessary steps if need be
 
-Step 2 
+<h3>Step 2</h3>
 
-Install all necessary plugins or dependencies required depending on the OS you are using.
+Install all necessary plugins or dependencies required depending on the OS you are using. 
 
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
+      # -*- mode: ruby -*-
+      # vi: set ft=ruby :
 
-# All Vagrant configuration is done below. The "2" in Vagrant.configure
-# configures the configuration version (we support older styles for
-# backwards compatibility). Please don't change it unless you know what
+      # All Vagrant configuration is done below. The "2" in Vagrant.configure
+      # configures the configuration version (we support older styles for
+      # backwards compatibility). Please don't change it unless you know what
 
-# MULTI SERVER/VMs environment 
-#
-Vagrant.configure("2") do |config|
+      # MULTI SERVER/VMs environment 
 
-# creating first VM called web  
-  config.vm.define "web" do |web|
+      Vagrant.configure("2") do |config|
+
+      # creating first VM called web  
+      config.vm.define "web" do |web|
     
-    web.vm.box = "bento/ubuntu-18.04"
-   # downloading ubuntu 18.04 image
+      web.vm.box = "bento/ubuntu-18.04"
+      # downloading ubuntu 18.04 image
 
-    web.vm.hostname = 'web'
-    # assigning host name to the VM
+      web.vm.hostname = 'web'
+      # assigning host name to the VM
     
-    web.vm.network :private_network, ip: "192.168.56.150"
-    #   assigning private IP
+      web.vm.network :private_network, ip: "192.168.56.150"
+      #   assigning private IP
     
-    config.hostsupdater.aliases = ["development.web"]
-    # creating a link called development.web so we can access web page with this link instread of an IP   
+      config.hostsupdater.aliases = ["development.web"]
+      # creating a link called development.web so we can access web page with this link instread of an IP   
         
-  end
+   end
   
-# creating second VM called db
-  config.vm.define "db" do |db|
+      # creating second VM called db
+      config.vm.define "db" do |db|
     
-    db.vm.box = "bento/ubuntu-18.04"
+      db.vm.box = "bento/ubuntu-18.04"
     
-    db.vm.hostname = 'db'
+      db.vm.hostname = 'db'
     
-    db.vm.network :private_network, ip: "192.168.56.100"
+      db.vm.network :private_network, ip: "192.168.56.100"
     
-    config.hostsupdater.aliases = ["development.db"]     
-  end
+      config.hostsupdater.aliases = ["development.db"]     
+    end
 
- # creating are Ansible controller
-  config.vm.define "controller" do |controller|
+    # creating are Ansible controller
+    config.vm.define "controller" do |controller|
     
     controller.vm.box = "bento/ubuntu-18.04"
     
@@ -82,7 +82,7 @@ Vagrant.configure("2") do |config|
 
 end
 
-Controller setup
+<h2>Controller setup </h2>
 
 After running vagrant up, SSH in to the controller and run the following commands:
 
