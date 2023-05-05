@@ -67,7 +67,8 @@ configuration files should they update
       config.hostsupdater.aliases = ["development.db"]     
     end
 
-    # creating are Ansible controller
+    #creating are Ansible controller
+    
     config.vm.define "controller" do |controller|
     
     controller.vm.box = "bento/ubuntu-18.04"
@@ -81,6 +82,7 @@ configuration files should they update
     end
 
     end
+
 
 <h2>Controller setup </h2>
 
