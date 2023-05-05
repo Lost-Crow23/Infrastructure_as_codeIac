@@ -45,12 +45,12 @@ of backup infrastructure resources.
 to match that state. Tools, such as Ansible, Chef, Puppet, and SaltStack, are used to automate the configuration of infrastructure resources.
 - Enables organizations to manage infrastructure at scale, and to achieve greater consistency, efficiency, and agility.
 
-<h3>What is Ansible?<h3>
+<h3>What is Ansible?</h3>
 
 - Ansible is an open-source configuration management, deployment, and orchestration tool that allows IT teams to automate infrastructure provisioning and 
 configuration tasks. It is used for managing servers, network devices, cloud infrastructure, and applications.
 
-<h3>what are the Benefits?<h3>
+<h3>what are the Benefits?</h3>
 
 - Scalability: Ansible is designed to work at scale and can manage thousands of hosts with ease.
 
