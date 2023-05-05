@@ -78,9 +78,9 @@ Install all necessary plugins or dependencies required depending on the OS you a
     
     config.hostsupdater.aliases = ["development.controller"] 
     
-   end
+    end
 
-   end
+    end
 
 <h2>Controller setup </h2>
 
