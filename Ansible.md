@@ -80,13 +80,13 @@ configuration files should they update
       # creating second VM called db
       config.vm.define "db" do |db|
      
-     db.vm.box = "bento/ubuntu-18.04"
+      db.vm.box = "bento/ubuntu-18.04"
      
-     db.vm.hostname = 'db'
+      db.vm.hostname = 'db'
      
-     db.vm.network :private_network, ip: "192.168.33.11"
+      db.vm.network :private_network, ip: "192.168.33.11"
      
-     #config.hostsupdater.aliases = ["development.db"] 
+      #config.hostsupdater.aliases = ["development.db"] 
      
    end
  
