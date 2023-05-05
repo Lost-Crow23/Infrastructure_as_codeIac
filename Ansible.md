@@ -53,7 +53,7 @@ Install all necessary plugins or dependencies required depending on the OS you a
       config.hostsupdater.aliases = ["development.web"]
       # creating a link called development.web so we can access web page with this link instread of an IP   
         
-   end
+    end
   
       # creating second VM called db
       config.vm.define "db" do |db|
