@@ -25,7 +25,7 @@ configuration files should they update
 
 <h3>Step 2</h3>
 
-Install all necessary plugins or dependencies required depending on the OS you are using. 
+- Install all necessary plugins or dependencies required depending on the OS you are using. 
 
       # -*- mode: ruby -*-
       # vi: set ft=ruby :
