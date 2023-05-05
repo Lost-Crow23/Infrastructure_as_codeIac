@@ -45,8 +45,7 @@ configuration files should they update
       # configures the configuration version (we support older styles for
       # backwards compatibility). Please don't change it unless you know what
  
-       # MULTI SERVER/VMs environment 
-      #
+      # MULTI SERVER/VMs environment 
       Vagrant.configure("2") do |config|
       # creating are Ansible controller
       config.vm.define "controller" do |controller|
@@ -60,7 +59,8 @@ configuration files should they update
       # config.hostsupdater.aliases = ["development.controller"] 
     
     end 
-       # creating first VM called web  
+    
+      # creating first VM called web  
       config.vm.define "web" do |web|
      
       web.vm.box = "bento/ubuntu-18.04"
@@ -70,7 +70,7 @@ configuration files should they update
       # assigning host name to the VM
      
       web.vm.network :private_network, ip: "192.168.33.10"
-      #   assigning private IP
+      # assigning private IP
      
       #config.hostsupdater.aliases = ["development.web"]
       # creating a link called development.web so we can access web page with this link instread of an IP   
@@ -86,13 +86,13 @@ configuration files should they update
      
      db.vm.network :private_network, ip: "192.168.33.11"
      
-     #config.hostsupdater.aliases = ["development.db"]     
+     #config.hostsupdater.aliases = ["development.db"] 
+     
    end
  
  
    end
- 
- 
+   
 
 <h2>Controller setup </h2>
 
