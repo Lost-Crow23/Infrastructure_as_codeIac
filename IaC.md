@@ -53,4 +53,15 @@ configuration tasks. It is used for managing servers, network devices, cloud inf
 <h3>what are the Benefits?</h3>
 
 - Scalability: Ansible is designed to work at scale and can manage thousands of hosts with ease.
+- Community: Ansible has a large and active community, which provides support, documentation, and a large number of pre-built modules and playbooks.
+- Agentless Architecture: Ansible uses a push-based approach and does not require any agents or additional software to be installed on the target hosts, making it easy to deploy and manage.
+
+what are the use cases?
+
+- 
+What is YAML?
+
+What is playbooks?
+
+
 
