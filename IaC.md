@@ -1,6 +1,6 @@
-Infrastructure as code
+<h1>Infrastructure as code</h1>
 
-What is Iac?
+<h3>What is Iac?</h3>
 
 - Infrastructure as code, refers to the practice of managing and provisioning IT infrastructure, through machine readable definition, rather than manually
 configuring systems. 
@@ -11,7 +11,7 @@ configuring systems.
 - higher scalability and agility as infra configs can be replicated and modified to meet changes
 - Terraform, Ansible and chef are used as frameworks to implement and manage Iac.
 
-What are the benefits?
+<h3>What are the benefits?</h3>
 
 - Allows more efficient and reliable management as the code is auto tested, reviewed and delpoyed.
 - Reduces errors and inconsistencies 
@@ -23,7 +23,7 @@ What are the benefits?
 - Testing
 - Cost-effectiveness
 
-What are use cases and how it is used in the industry?
+<h3>What are use cases and how it is used in the industry?</h3>
 
 - Cloud services, like Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP) 
 use IaC to enable customers to provision infrastructure resources using machine-readable configuration files.
@@ -39,18 +39,18 @@ ensuring compliance with industry regulations and best practices.
 - Disaster recovery IaC enables organizations to quickly and easily recover from disasters or system failures by automating the provisioning 
 of backup infrastructure resources.
 
-What is Configuration management?
+<h3>What is Configuration management?</h3>
 
 - Configuration management involves defining the desired state of infrastructure resources, and then automatically configuring those resources 
 to match that state. Tools, such as Ansible, Chef, Puppet, and SaltStack, are used to automate the configuration of infrastructure resources.
 - Enables organizations to manage infrastructure at scale, and to achieve greater consistency, efficiency, and agility.
 
-What is Ansible?
+<h3>What is Ansible?/h3>
 
 - Ansible is an open-source configuration management, deployment, and orchestration tool that allows IT teams to automate infrastructure provisioning and 
 configuration tasks. It is used for managing servers, network devices, cloud infrastructure, and applications.
 
-Benefits?
+<h3>what are the Benefits?/h3>
 
 - Scalability: Ansible is designed to work at scale and can manage thousands of hosts with ease.
 - 
