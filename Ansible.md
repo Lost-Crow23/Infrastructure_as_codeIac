@@ -243,5 +243,38 @@ Installing Nginx
             service:
             name: nginx
 
+Step 2 
+
+- Run the command `sudo ansible-playbook install-nginx-playbook.yml` to execute the playbook
+- To check the status of the running file `sudo ansible web -a "systemctl status nginx"`
+
+Ansible Playbook Version 2 - Installing Nodejs
+
+Step 1 
+
+- Make a new playbook script - `sudo nano install-nodejs-playbook.yml`
+- Enter the following commands as below: you may have errors with the indentation so please do fix it or else it will through errors when ran. 
+- `cat install-nodejs-playbook.yml`
+
+---
+      - hosts: web
+        become: true
+        tasks:
+        - name: Install nodejs in web server
+          apt: 
+            name: nodejs 
+            state: present
+        - name: Install npm in web server
+          apt: 
+            name: npm 
+            state: present
+        - name: Install python in web server
+          apt: 
+            name: python 
+            state: present
+
+
+
+
 
 
