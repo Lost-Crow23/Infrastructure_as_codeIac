@@ -1,6 +1,6 @@
 <h1>Ansible Controller</h1>
 
-Diagram
+![Ansible Diagram v2](https://github.com/Lost-Crow23/Infrastructure_as_codeIac/assets/126012715/4e0cdcc6-be26-44d1-a74a-5d7997270a0b)
 
 <h2>Pre-requisites</h2>
 
