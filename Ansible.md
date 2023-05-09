@@ -108,7 +108,7 @@ After running vagrant up, SSH in to the controller and run the following command
     
 <h2>Ansible Guide</h2>
 
-Errors encountered: Had to change my web IP address to `192.168.56.105` since the previous IP address was giving errors when following the steps as below from `192.162.56.100`.
+Errors encountered: Had to change my web IP address in the `vagrantfile` on VS code to `192.168.56.105` since the previous IP address was giving errors when following the steps as below from `192.162.56.100`.
 This is step by step by guide if running into errors in a Mac high seirra. 
 
 <h3>Step 1</h3>
