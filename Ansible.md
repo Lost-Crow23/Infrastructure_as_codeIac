@@ -106,22 +106,22 @@ After running vagrant up, SSH in to the controller and run the following command
     sudo apt-get install ansible
     ssh vagrant@webIP # password is vagrant
     
-Ansible Guide
+<h2>Ansible Guide</h2>
 
 Errors encountered: Had to change my web IP address to `192.168.56.105` since the previous IP address was giving errors when following the steps as below from `192.162.56.100`.
 This is step by step by guide if running into errors in a Mac high seirra. 
 
-Step 1
+<h3>Step 1</h3>
 
 - Make sure you can `ssh` onto the other agents using the controller terminal. e.g. `ssh vagrant@192.168.56.105`
 - Prompts a password: `vagrant` or whatever password is setup 
 - Do the same for the `db` agent in contoller using the db IP address to check if it is working `ssh vagrant@192.168.56.110`
 
-Step 2
+<h3>Step 2</h3>
 
 - `sudo apt install tree` to make the `ls` command look more cleaner
 
-Step 3 
+<h3>Step 3</h3>
 
 In the folder `/etc/ansible/` there is a hosts file. In here is where you can specify the ip addresses of things you want look into.
 
@@ -134,13 +134,13 @@ In the folder `/etc/ansible/` there is a hosts file. In here is where you can sp
       [db]
       192.168.56.110 ansible_connection=ssh ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
       
-Step 4 
+<h3>Step 4</h3>
 
 - `sudo nano ansible.cfg`
 
 - Make sure to edit this file and add or uncomment the `default` section to `host_key_checking = False` 
 
-Step 5
+<h3>Step 5</h3>
 
 - `sudo ansible web -a "uname"` but we used `sudo ansible db -a "uname"` to display OS system we used as we wanted to configure and see this command when executing this agent. 
 - `sudo ansible web -a "uname"` so `sudo ansible web -a "date"` to display the date we used to configure and see this command when executing this agent.
