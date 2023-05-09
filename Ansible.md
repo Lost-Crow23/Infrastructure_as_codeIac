@@ -273,6 +273,35 @@ Step 1
             name: python 
             state: present
 
+Step 2
+
+`sudo ansible web -a "nodejs --version"`
+
+- To check the version of node, should be given as `v8.10.0` if working.
+
+Step 3 
+
+- `sudo ansible-playbook install-nodejs-playbook.yml` to run the playbook
+- Now `nginx` should at least work.
+
+Step 4 
+
+Now we are going to launch the app with the web IP with port 3000. 
+
+`scp -r /path/to/source/folder user@remote:/path/to/destination/folder` 
+
+Command to copy one file to another destination.
+
+-  `scp -r /Users/Admin/Documents/Virtualisation/app vagrant@192.168.56.105:/home/vagrant`
+- This command is run in your git bash terminal in the `vagrantfile` where you would `cd` into the current file then copy the `app` folder into the folder to where you are executing the current folder within. Make sure to use your web IP correctly. 
+- This command should also prompt a password which is the same password as you ssh into the web agent, `vagrant`
+
+Step 5 
+
+- Go back to the `vagrant@controller` git bash terminal and `cd` onto the web agent.
+- Enter the password, `vagrant`
+- Make sure to `cd app` as we should now have the app folder within the agent as we inputted the IP address as before. 
+
 
 
 
