@@ -105,3 +105,52 @@ After running vagrant up, SSH in to the controller and run the following command
     sudo apt-get update
     sudo apt-get install ansible
     ssh vagrant@webIP # password is vagrant
+    
+Ansible Guide
+
+Errors encountered: Had to change my web IP address to `192.168.56.105` since the previous IP address was giving errors when following the steps as below from `192.162.56.100`.
+This is step by step by guide if running into errors in a Mac high seirra. 
+
+Step 1
+
+- Make sure you can `ssh` onto the other agents using the controller terminal. e.g. `ssh vagrant@192.168.56.105`
+- Prompts a password: `vagrant` or whatever password is setup 
+- Do the same for the `db` agent in contoller using the db IP address to check if it is working `ssh vagrant@192.168.56.110`
+
+Step 2
+
+- `sudo apt install tree` to make the `ls` command look more cleaner
+
+Step 3 
+
+In the folder `/etc/ansible/` there is a hosts file. In here is where you can specify the ip addresses of things you want look into.
+
+- `sudo nano hosts` , scroll down and enter with your IP addresses and the command lines below.
+
+
+      [web]
+      192.168.56.105 ansible_connection=ssh ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
+
+      [db]
+      192.168.56.110 ansible_connection=ssh ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
+      
+Step 4 
+
+- `sudo nano ansible.cfg`
+
+- Make sure to edit this file and add or uncomment the `default` section to `host_key_checking = False` 
+
+Step 5
+
+- `sudo ansible web -a "uname"` but we used `sudo ansible db -a "uname"` to display OS system we used as we wanted to configure and see this command when executing this agent. 
+- `sudo ansible web -a "uname"` so `sudo ansible web -a "date"` to display the date we used to configure and see this command when executing this agent.
+- Alternatvely, you may use `ansible all -a` is a command to run a command across all hosts.
+- And `sudo ansible all -a "ls" --ask-vault-pass` which will prompt you to enter the password `vagrant` and it will display all the working agents. 
+
+      Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+      192.168.56.105 | CHANGED | rc=0 >>
+
+      Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+      192.168.56.110 | CHANGED | rc=0 >>
+    
+    
