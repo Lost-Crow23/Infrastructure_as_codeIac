@@ -193,6 +193,6 @@ Using this command we can successfully copy a file from the `/etc/ansible` direc
       `src=/etc/ansible/testing.txt:` This specifies the source file we want to copy, which is located in the "/etc/ansible" directory on the control machine.
       `dest=/home/vagrant`: This specifies the destination directory where we want to copy the file on the "web" host.
 
-when you run this command, Ansible will connect to the "web" host, copy the file from the "/etc/ansible" directory on the control machine to the "/home/vagrant" directory on the "web" host, and report back the result.
+When you run this command, Ansible will connect to the "web" host, copy the file from the "/etc/ansible" directory on the control machine to the "/home/vagrant" directory on the "web" host, and report back the result.
     
     
