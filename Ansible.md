@@ -154,5 +154,16 @@ In the folder `/etc/ansible/` there is a hosts file. In here is where you can sp
 
       Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
       192.168.56.110 | CHANGED | rc=0 >>
+
+Extras:
+
+To reboot all machines you can just use the shell extension in ansible:
+
+      sudo ansible all -a "/sbin/reboot"
+      
+Similarly for uptime:
+
+      sudo ansible all -m shell -a "uptime"
+
     
     
