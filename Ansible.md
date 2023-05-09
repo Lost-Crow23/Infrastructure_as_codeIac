@@ -197,4 +197,51 @@ Using this command we can successfully copy a file from the `/etc/ansible` direc
 
 When you run this command, Ansible will connect to the "web" host, copy the file from the "/etc/ansible" directory on the control machine to the "/home/vagrant" directory on the "web" host, and report back the result.
     
-    
+<h2>Ansible Playbook</h2>
+
+An Ansible playbook is a collection of tasks that are executed on one or more hosts defined in an inventory. Playbooks are written in YAML format and are used to automate tasks such as software installations, configuration management, and application deployments. Playbooks can also include variables, conditionals, loops, and modules to perform complex tasks.
+
+Installing Nginx
+
+- Written in yaml
+- Instructions to talk to servers
+- Multiple playbooks for multiple servers
+
+      # This is a playbook to install and set up Nginx in our web server (192.168.33.10)
+      # This playbook is written in YAML and YAML starts with three dashes (front matter)
+      # YAML file starts ---
+      ---
+      # where would you like to install nginx
+      # name of the hosts - hosts is to define the name of your host of all
+      - hosts: web
+
+      # Would you like to see logs
+      # find the facts about the host
+      gather_facts: yes
+
+      # Do we need admin access - sudo
+      # admin access
+      become: true
+
+      # Add the instructions - commands
+      tasks:
+      - name: Install Nginx in web server
+        #install nginx
+        apt: pkg=nginx state=present update_cache=yes
+      # Ensure status is running/active
+      # restart nginx if reverse proxy is implemented or if needed
+       notify:
+             - restart nginx
+      - name: Allow all access to tcp port 80
+      ufw:
+            rule: allow
+            port: '80'
+             proto: tcp
+
+      handlers:
+       - name: Restart Nginx
+            service:
+            name: nginx
+
+
+
