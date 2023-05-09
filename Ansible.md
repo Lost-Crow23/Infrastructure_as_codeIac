@@ -155,6 +155,21 @@ In the folder `/etc/ansible/` there is a hosts file. In here is where you can sp
       Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
       192.168.56.110 | CHANGED | rc=0 >>
 
+Step 6
+
+We may use this command to show if everything is successful within the agents.
+
+`sudo ansible name(web) -m ping`
+
+      192.168.56.105 | SUCCESS => {
+            "ansible_facts": {
+                   "discovered_interpreter_python": "/usr/bin/python"
+            }, 
+            "changed": false, 
+            "ping": "pong"
+      }
+
+
 Extras:
 
 To reboot all machines you can just use the shell extension in ansible:
