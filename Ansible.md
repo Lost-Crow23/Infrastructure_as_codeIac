@@ -243,14 +243,12 @@ Installing Nginx
             service:
             name: nginx
 
-Step 2 
-
 - Run the command `sudo ansible-playbook install-nginx-playbook.yml` to execute the playbook
 - To check the status of the running file `sudo ansible web -a "systemctl status nginx"`
 
-Ansible Playbook Version 2 - Installing Nodejs
+<h2>Ansible Playbook Version 2 - Installing Nodejs</h2>
 
-Step 1 
+<h3>Step 1</h3>
 
 - Make a new playbook script - `sudo nano install-nodejs-playbook.yml`
 - Enter the following commands as below: you may have errors with the indentation so please do fix it or else it will through errors when ran. 
@@ -273,18 +271,18 @@ Step 1
             name: python 
             state: present
 
-Step 2
+<h3>Step 2</h3>
 
 `sudo ansible web -a "nodejs --version"`
 
 - To check the version of node, should be given as `v8.10.0` if working.
 
-Step 3 
+<h3>Step 3</h3>
 
 - `sudo ansible-playbook install-nodejs-playbook.yml` to run the playbook
 - Now `nginx` should at least work.
 
-Step 4 
+<h3>Step 4</h3>
 
 Now we are going to launch the app with the web IP with port 3000. 
 
@@ -296,12 +294,19 @@ Command to copy one file to another destination.
 - This command is run in your git bash terminal in the `vagrantfile` where you would `cd` into the current file then copy the `app` folder into the folder to where you are executing the current folder within. Make sure to use your web IP correctly. 
 - This command should also prompt a password which is the same password as you ssh into the web agent, `vagrant`
 
-Step 5 
+<h3>Step 5</h3>
 
 - Go back to the `vagrant@controller` git bash terminal and `cd` onto the web agent.
 - Enter the password, `vagrant`
 - Make sure to `cd app` as we should now have the app folder within the agent as we inputted the IP address as before. 
 
+<h3>Final Iteration</h3>
+
+`node app.js -y`
+
+- This command will run the node app and should be now listening on port 3000.
+
+<img width="1402" alt="Sparta app, ansible " src="https://github.com/Lost-Crow23/Infrastructure_as_codeIac/assets/126012715/85625bb9-649a-49a6-aafc-0012bbb0fe6a">
 
 
 
