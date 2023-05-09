@@ -164,6 +164,20 @@ To reboot all machines you can just use the shell extension in ansible:
 Similarly for uptime:
 
       sudo ansible all -m shell -a "uptime"
+      
+<h2>Using ADHOC method</h2>
 
+Using this command we can successfully copy a file from the `/etc/ansible` directory on the control machine to the `/home/vagrant` which is our `web` host.
+
+      `sudo ansible web -m copy -a "src=/etc/ansible/testing.txt dest=/home/vagrant"` 
+
+      sudo ansible: This is the command to run an Ansible playbook or module.
+      web: Name of the Ansible inventory group that represents the "web" host.
+      -m copy: This specifies that we want to use the "copy" module to copy a file.
+      -a: This option specifies the arguments to pass to the module. In this case, we're using the following arguments:
+      `src=/etc/ansible/testing.txt:` This specifies the source file we want to copy, which is located in the "/etc/ansible" directory on the control machine.
+      `dest=/home/vagrant`: This specifies the destination directory where we want to copy the file on the "web" host.
+
+when you run this command, Ansible will connect to the "web" host, copy the file from the "/etc/ansible" directory on the control machine to the "/home/vagrant" directory on the "web" host, and report back the result.
     
     
