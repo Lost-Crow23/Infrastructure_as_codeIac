@@ -182,6 +182,8 @@ Similarly for uptime:
       
 <h2>Using ADHOC method</h2>
 
+An Ansible ad hoc command uses the `/usr/bin/ansible` command-line tool to automate a single task on one or more managed nodes.
+
 Using this command we can successfully copy a file from the `/etc/ansible` directory on the control machine to the `/home/vagrant` which is our `web` host.
 
       `sudo ansible web -m copy -a "src=/etc/ansible/testing.txt dest=/home/vagrant"` 
