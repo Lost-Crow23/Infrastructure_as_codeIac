@@ -155,7 +155,7 @@ In the folder `/etc/ansible/` there is a hosts file. In here is where you can sp
       Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
       192.168.56.110 | CHANGED | rc=0 >>
 
-Step 6
+<h3>Step 6</h3>
 
 We may use this command to show if everything is successful within the agents.
 
