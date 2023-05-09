@@ -123,6 +123,8 @@ This is step by step by guide if running into errors in a Mac high seirra.
 
 <h3>Step 3</h3>
 
+- `cd` from controller to `/etc/ansible/`
+
 In the folder `/etc/ansible/` there is a hosts file. In here is where you can specify the ip addresses of things you want look into.
 
 - `sudo nano hosts` , scroll down and enter with your IP addresses and the command lines below.
