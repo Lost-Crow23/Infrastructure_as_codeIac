@@ -426,4 +426,34 @@ Step 1
 
 ```
 
+- This should automate our bindIp when we do `sudo nano mongod.conf` it should autmatically to `0.0.0.0`
 
+Step 2 
+
+- We now run the yaml file `sudo ansible-playbook mongo.conf.yml`
+
+Step 3 
+
+- Create an app environment yaml file to execute and automate our deployment of our sparta app, while automatically exporting our `db` IP onto our `web` IP agent node.
+- `sudo nano app-env.yml` create a new playbook
+- Within the playbook execute these commands:
+
+```
+---
+- hosts: web
+  gather_facts: yes
+  become: true
+  tasks:
+  - name: change db_host
+    shell: "echo 'export DB_HOST=mongodb://192.168.56.110:27017/posts' >> /home/vagrant/.bashrc"
+  - name: restart bashrc
+    shell: source /home/vagrant/.bashrc && source .bashrc
+    args:
+      executable: /bin/bash
+```
+Final Iteration
+
+- Go to the `web` node agent and `sudo nano .bashrc` 
+- The DB_HOST should be within the `.bashrc` file automatically
+- `cd app` and run the node commands, `npm install` and `npm start`
+- Should be now available on port `3000/posts` on the browser with your `web app` IP
