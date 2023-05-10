@@ -390,11 +390,11 @@ Step 10
 
 Diagram 
 
-Automating the bindIp on DB agent node
+<h2>Automating the bindIp on DB agent node and DB_HOST</h2>
 
 We created two playbooks to execute this.
 
-Step 1 
+<h3>Step 1 </h3>
 
 - Create a new playbook called `sudo nano mongo.conf.yml` to automate the bindIP on the file of where it is within the `db` node agent.
 - Once created we enter the commands as below to change the Ip:
@@ -428,11 +428,11 @@ Step 1
 
 - This should automate our bindIp when we do `sudo nano mongod.conf` it should autmatically to `0.0.0.0`
 
-Step 2 
+<h3>Step 2</h3> 
 
 - We now run the yaml file `sudo ansible-playbook mongo.conf.yml`
 
-Step 3 
+<h3>Step 3</h3> 
 
 - Create an app environment yaml file to execute and automate our deployment of our sparta app, while automatically exporting our `db` IP onto our `web` IP agent node.
 - `sudo nano app-env.yml` create a new playbook
@@ -450,8 +450,8 @@ Step 3
     shell: source /home/vagrant/.bashrc && source .bashrc
     args:
       executable: /bin/bash
-```
-Final Iteration
+``` 
+<h3>Final Iteration</h3> 
 
 - Go to the `web` node agent and `sudo nano .bashrc` 
 - The DB_HOST should be within the `.bashrc` file automatically
