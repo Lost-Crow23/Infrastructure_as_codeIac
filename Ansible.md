@@ -409,11 +409,13 @@ Step 1
             #configure mongodb.conf
               tasks:
             - name: change bing_ip in mongodb.conf
-            
+             #adds or modifies a line in the /etc/mongod.conf
               lineinfile:
                    path: /etc/mongodb.conf
+             #parameter matches any existing bindIp lines, and the line parameter adds a new bindIp 
                    regexp: '0.0.0.10'
                    line: '0.0.0.0'
+             #This creates a backup of the file before modifying it      
                    backrefs: yes
 
             - name: restart mongodb
@@ -423,8 +425,5 @@ Step 1
               shell: systemctl enable mongodb
 
 ```
-#configure mongodb.conf
 
-#adds or modifies a line in the /etc/mongod.conf
-#parameter matches any existing bindIp lines, and the line parameter adds a new bindIp 
-#This creates a backup of the file before modifying it 
+
