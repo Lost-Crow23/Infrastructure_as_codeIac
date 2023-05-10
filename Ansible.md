@@ -417,6 +417,7 @@ Step 1
               path: /etc/mongodb.conf
               
             # parameter matches any existing bindIp lines, and the line parameter adds a new bindIp
+            
               regexp: '0.0.0.10'
               
               line: '0.0.0.0'
