@@ -399,27 +399,30 @@ Step 1
 - Create a new playbook called `sudo nano mongo.conf.yml` to automate the bindIP on the file of where it is within the `db` node agent.
 - Once created we enter the commands as below to change the Ip:
 
-      ---
-      - hosts: db
+            ---
+            - hosts: db
 
-        gather_facts: yes
+              gather_facts: yes
 
-        become: true
+              become: true
 
-      #configure mongodb.conf
-        tasks:
-        - name: change bing_ip in mongodb.conf
-          lineinfile:
-            path: /etc/mongodb.conf
-            regexp: '0.0.0.10'
-            line: '0.0.0.0'
-            backrefs: yes
+            #configure mongodb.conf
+              tasks:
+            - name: change bing_ip in mongodb.conf
+             # adds or modifies a line in the /etc/mongod.conf
+              lineinfile:
+              path: /etc/mongodb.conf
+            # parameter matches any existing bindIp lines, and the line parameter adds a new bindIp
+              regexp: '0.0.0.10'
+              line: '0.0.0.0'
+            # This creates a backup of the file before modifying it
+              backrefs: yes
 
-      - name: restart mongodb
-        shell: systemctl restart mongodb
+            - name: restart mongodb
+              shell: systemctl restart mongodb
 
-      - name: enable mongodb
-        shell: systemctl enable mongodb
+            - name: enable mongodb
+              shell: systemctl enable mongodb
 
 
 
