@@ -357,6 +357,42 @@ Enter the following commands onto the nano file: making sure our host is to our 
 
 <img width="553" alt="Running mongodb Iac" src="https://github.com/Lost-Crow23/Infrastructure_as_codeIac/assets/126012715/855e421f-f103-4e15-85c9-3a7502bce347">
 
+<h3>Step 6</h3>
+
+- From the `db` agent node, we need to first `ssh vagrant@192.168.56.110` which is our db IP to get into the agent node.
+- `cd` into the `/etc/` folder to which were our mongod.conf file is in.
+
+<h3>Step 7</h3>
+
+- To configure use `sudo nano mongodb.conf` which should open up the mongod file
+- All we do is change the `bindip` to `0.0.0.0` 
+
+Step 8
+
+- `sudo systemctl restart mongodb`, to restart mongodb
+- `sudo systemctl enable mongodb`, to enable mongodb
+- `sudo systemctl status mongodb`, to check the statuss of mongodb
+
+Step 9 
+
+- From our now `web` agent node, we need to export the DB_HOST onto our environment variable and to do this, we use:
+
+`export DB_HOST=mongodb://192.168.56.110:27017/posts`
+
+- With our `db` IP address and the mongodb port number to display our sparta app configured within the app folder.
+
+- `printenv DB_HOST` to display the environment variable within our `web` agent node.
+
+Step 10 
+
+- `cd app` and `ls` and run the `npm install` and the `npm start`
+- This should now work and the sparta app should be displayed through the `web app` agent node IP with `3000` and `3000/posts`
+
+Diagram 
+
+Running it in the background 
+
+
 
 
 
