@@ -308,6 +308,54 @@ Command to copy one file to another destination.
 
 <img width="1402" alt="Sparta app, ansible " src="https://github.com/Lost-Crow23/Infrastructure_as_codeIac/assets/126012715/85625bb9-649a-49a6-aafc-0012bbb0fe6a">
 
+<h2>Ansible playbook version 3 - Connecting our Mongodb Database</h2>
+
+<h3>Pre-requisites</h3>
+
+- To have `web`, `db` and `controller` running in the VM `virtualbox` if `saved`, `vagrant up` to initialise the VMs again.
+
+<img width="736" alt="running all vms on virtualbox" src="https://github.com/Lost-Crow23/Infrastructure_as_codeIac/assets/126012715/e463905f-f524-4acb-af4e-d2e7c9a3595b">
+
+<h3>Step 1</h3>
+
+On Git bash terminal `ssh` into the `vagrant@controller`:
+
+- Since we `saved` our VMs we can use the command `sudo ansible all -m ping` to display the working agent nodes if they are successful or not.
+
+<h3>Step 2</h3>
+
+- `cd` into the `etc/asnible/` and create a new playbook
+
+<h3>Step 3</h3>
+
+- You may name the new playbook as you wish, but for staying in context we did `sudo nano mongo-db-playbook.yml`
+- Edit the nano file to configure mongodb
+
+<h3>Step 4</h3>
+
+Enter the following commands onto the nano file: making sure our host is to our `db` agent not `web`
+
+      ---
+      # setting up mongodb in DB-agent-node
+      # where would you like to install mongo db
+      - hosts: db
+      # Would you like to see logs
+        gather_facts: yes
+      # Do we need admin access - sudo
+        become: true
+      # Add the instructions - commands for mongodb and status running
+        tasks:
+        - name: configuring Mongo-db in db agent node
+          apt: pkg=mongodb state=present
+      # check status with Adhoc commands
+     
+<h3>Step 5</h3>
+ 
+- Run the playbook using: `sudo ansible db -a "systemctl status mongodb"`
+
+- You should have this shown:
+
+<img width="553" alt="Running mongodb Iac" src="https://github.com/Lost-Crow23/Infrastructure_as_codeIac/assets/126012715/855e421f-f103-4e15-85c9-3a7502bce347">
 
 
 
