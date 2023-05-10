@@ -390,7 +390,36 @@ Step 10
 
 Diagram 
 
-Running it in the background 
+Automating the bindIp on DB agent node
+
+We created two playbooks to execute this.
+
+Step 1 
+
+- Create a new playbook called `sudo nano mongo.conf.yml` to automate the bindIP on the file of where it is within the `db` node agent.
+- Once created we enter the commands as below to change the Ip:
+
+      ---
+      - hosts: db
+
+        gather_facts: yes
+
+        become: true
+
+      #configure mongodb.conf
+        tasks:
+        - name: change bing_ip in mongodb.conf
+          lineinfile:
+            path: /etc/mongodb.conf
+            regexp: '0.0.0.10'
+            line: '0.0.0.0'
+            backrefs: yes
+
+      - name: restart mongodb
+        shell: systemctl restart mongodb
+
+      - name: enable mongodb
+        shell: systemctl enable mongodb
 
 
 
